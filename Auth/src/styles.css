@@ -1,1 +1,96 @@
 /* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+.form-login{
+  padding: 25px;
+ 
+  border-radius: 20px;
+  border: 2px solid #EEEEEE;
+  max-width: 370px;
+  min-width: 370px;
+}
+.input-addon{
+  position: relative;
+}
+.input-addon .icon{
+  position: absolute;
+  padding: 8px;
+  pointer-events: none;
+}
+.icon{
+  color: #8A8A8A;
+}
+.input-addon input  { padding-left:  35px; }
+.input-addon input { padding-right: 30px; }
+
+
+.social-media{
+  color: #8A8A8A;
+}
+.social-media img{
+  margin: 10px;
+}
+.go-login a{
+  color: rgb(18, 205, 252);
+  text-decoration: none !important;
+}
+.go-login a:hover{
+  color: rgb(21, 177, 216);
+}
+
+/* Estilos de perfil */
+.name{
+  margin-right: 34px;
+}
+
+.drop-list{
+  padding: 15px;
+  border-radius: 14px !important;
+ 
+}
+.lists-items{
+  padding: 14px;
+}
+
+.icon-p{
+  margin-right: 10px;
+}
+.list{
+  color: #8A8A8A;
+  border-radius: 10px;
+  position: relative;
+}
+.text{
+  position: relative;
+  bottom: 7px;
+}
+.lists-items a:last-child{
+  color: red;
+}
+
+.edit-btn{
+  height: 37px;
+  width: 95px;
+  border-radius: 13px !important;
+}
+
+
+.back{
+  text-decoration: none;
+}
+.detail-profile{
+  margin-left: 34px;
+  float: left;
+  width: 30%;
+}
+.form{
+  padding: 30px;
+  border: 1px solid rgb(224,224,224);
+  border-radius: 15px;
+}
+
+
+
+

@@ -11,23 +11,21 @@ var controller = {
   register: function (req, res) {
     var params = req.body;
 
-    //validar datos
-    var validate_name = !validator.isEmpty(params.name);
-    var validate_phone = !validator.isEmpty(params.phone);
+   
     var validate_email =
       validator.isEmail(params.email) && !validator.isEmpty(params.email);
     var validate_password = !validator.isEmpty(params.password);
 
-    if ((validate_name, validate_phone, validate_email, validate_password)) {
+    if ( validate_email, validate_password) {
       var user = new User();
 
       //añadimos los datos del usuario a la base de datos
       try {
-        user.name = params.name;
-        user.bio = params.bio;
-        user.phone = params.phone;
+        user.name = "";
+        user.bio = "";
+        user.phone = "";
         user.email = params.email.toLowerCase();
-        user.image = null;
+        user.image = "";
       } catch (err) {
         return res.status(400).send({
           status: "400",
@@ -114,6 +112,7 @@ var controller = {
             var data = {
               status: "Ok",
               message: "Datos correctos",
+              user:userFind
             };
             //Devuelve el token si envia el parametro(gettoken) a true
             if (params.gettoken) {
@@ -142,7 +141,7 @@ var controller = {
   // Actulizar datos del ususario
   update: function (req, res) {
     var params = req.body;
-    var user_exists = true;
+    
     // Recogemos los datos
     var validate_name = !validator.isEmpty(params.name);
     var validate_phone = !validator.isEmpty(params.phone);

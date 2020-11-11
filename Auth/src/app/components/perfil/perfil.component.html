@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-md navbar-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a href=""><img src="./assets/imgs/devchallenges.svg" alt="icondev" /></a>
+        
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle name"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {{ identity.name }}
+        </a>
+        <div class="dropdown-menu drop-list" aria-labelledby="navbarDropdown">
+          <div class="lists-items">
+            <a class="dropdown-item list" href="#"
+              ><span class="material-icons icon-p"> account_circle </span>
+              <span class="text">My Profile</span>
+            </a>
+
+            <a class="dropdown-item list" href="#">
+              <span class="material-icons icon-p"> people </span>
+              <span class="text">Group Chat</span>
+            </a>
+
+            <div class="dropdown-divider"></div>
+
+            <a class="dropdown-item list logut" href="#"
+              ><span class="material-icons icon-p"> exit_to_app </span>
+              <span class="text">Logout</span></a
+            >
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row justify-content-center align-items-center h-100">
+  <div class="container text-center ">
+    <h1>Personal info</h1>
+    <p>Basic info, like you name and photo</p>
+    <ul class="list-group d-flex text-left justify-content-between">
+      <li class="list-group-item list-group-item d-flex justify-content-between align-items-center ">
+        <div class="izq float-left ml-4">
+          <h3>Profile</h3>
+          <p>Some info may be visible to other profile</p>
+        </div>
+        <button [routerLink]="['/edit']"    class="btn btn-outline-dark edit-btn">Edit</button>
+      </li>
+      <li class="list-group-item ">
+        <span class="detail-profile">PHOTO</span>
+        <p class="float-left"></p>
+      </li>
+      <li class="list-group-item">
+        <span class="detail-profile">NAME</span>
+        <p class="float-left">{{identity.name}}</p>
+      </li>
+      <li class="list-group-item">
+        <span class="detail-profile">BIO</span>
+        <p class="float-left">{{identity.bio}}</p>
+      </li>
+      <li class="list-group-item">
+        <span class="detail-profile">PHONE</span>
+        <p class="float-left">{{identity.phone}}</p>
+      </li>
+      <li class="list-group-item">
+        <span class="detail-profile">EMAIL</span>
+        <p class="float-left">{{identity.email}}</p>
+      </li>
+      <li class="list-group-item">
+        <span class="detail-profile">PASSWORD</span>
+        <p class="float-left">************</p>
+      </li>
+    </ul>
+  </div>
+</div>
