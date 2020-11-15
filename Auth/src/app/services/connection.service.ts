@@ -13,7 +13,7 @@ export class ConnectionService {
   identity;
   constructor(private _http: HttpClient) {}
 
-  register(user: User) {
+  register(user: User):Observable<any> {
     var params = JSON.stringify(user);
     var headers = new HttpHeaders().set('Content-type', 'application/json');
     return this._http.post(`${this.url}/register`, params, { headers });
@@ -26,6 +26,22 @@ export class ConnectionService {
     var params = JSON.stringify(user);
     var headers = new HttpHeaders().set('Content-type', 'application/json');
     return this._http.post(`${this.url}/login`, params, { headers });
+  }
+
+  update(user):Observable<any>{
+
+    var params=JSON.stringify(user);
+    var headers = new HttpHeaders().set('Content-type', 'application/json').set('Authorization',this.getToken());
+
+    return this._http.put(`${this.url}/update`,params,{headers});
+  }
+
+  uploadImage(file):Observable<any>{
+    const formData: FormData = new FormData();
+    const headers=new HttpHeaders().set('Authorization',this.getToken())
+
+    formData.append('file', file, file.name);
+    return this._http.put(`${this.url}/avatar`, formData,{headers});
   }
 
   getIdentity(){
@@ -54,4 +70,7 @@ export class ConnectionService {
 
     return this.token;
   }
+
+
+ 
 }

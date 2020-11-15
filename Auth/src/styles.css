@@ -3,94 +3,132 @@ html,
 body {
   height: 100%;
 }
-.form-login{
+.form-login {
   padding: 25px;
- 
   border-radius: 20px;
-  border: 2px solid #EEEEEE;
+  border: 2px solid #eeeeee;
   max-width: 370px;
   min-width: 370px;
 }
-.input-addon{
+.input-addon {
   position: relative;
 }
-.input-addon .icon{
+.input-addon .icon {
   position: absolute;
   padding: 8px;
   pointer-events: none;
 }
-.icon{
-  color: #8A8A8A;
+.icon {
+  color: #8a8a8a;
 }
-.input-addon input  { padding-left:  35px; }
-.input-addon input { padding-right: 30px; }
-
-
-.social-media{
-  color: #8A8A8A;
+.input-addon input {
+  padding-left: 35px;
 }
-.social-media img{
+.input-addon input {
+  padding-right: 30px;
+}
+
+.social-media {
+  color: #8a8a8a;
+}
+.social-media img {
   margin: 10px;
 }
-.go-login a{
+.go-login a {
   color: rgb(18, 205, 252);
   text-decoration: none !important;
 }
-.go-login a:hover{
+.go-login a:hover {
   color: rgb(21, 177, 216);
 }
 
 /* Estilos de perfil */
-.name{
+.name {
   margin-right: 34px;
 }
 
-.drop-list{
+.drop-list {
   padding: 15px;
   border-radius: 14px !important;
- 
 }
-.lists-items{
+.lists-items {
   padding: 14px;
 }
 
-.icon-p{
+.icon-p {
   margin-right: 10px;
 }
-.list{
-  color: #8A8A8A;
+.list {
+  color: #8a8a8a;
   border-radius: 10px;
   position: relative;
 }
-.text{
+.text {
   position: relative;
   bottom: 7px;
 }
-.lists-items a:last-child{
+.lists-items a:last-child {
   color: red;
 }
 
-.edit-btn{
+.content {
+  margin: 0 !important;
+  height: auto;
+}
+
+.edit-btn {
   height: 37px;
   width: 95px;
   border-radius: 13px !important;
 }
-
-
-.back{
+.back {
   text-decoration: none;
 }
-.detail-profile{
+.back:hover {
+  text-decoration: none;
+}
+.avatar {
+  width: 40px;
+  border-radius: 10px;
+}
+.avatar-perfil {
+ 
+  width: 90px;
+  height: 90px;
+  z-index: 1;
+}
+.camera {
+  position: absolute;
+  z-index: 3;
+  left: 50px;
+  top: 35%;
+  color: white;
+  height: 20px;
+}
+.change{
+  color: rgb(130,130,130);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.change:hover{
+  cursor: pointer;
+  text-decoration: none;
+  
+  
+}
+
+.detail-profile {
   margin-left: 34px;
   float: left;
   width: 30%;
 }
-.form{
+.form {
   padding: 30px;
-  border: 1px solid rgb(224,224,224);
+  border: 1px solid rgb(224, 224, 224);
   border-radius: 15px;
 }
-
-
-
-
+.form input,
+.form textarea {
+  border-radius: 8px;
+}

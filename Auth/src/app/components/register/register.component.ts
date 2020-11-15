@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ConnectionService } from './../../services/connection.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
@@ -13,7 +14,8 @@ export class RegisterComponent implements OnInit {
   user:User;
   msg_register=true;
   constructor(
-    private _conectionService:ConnectionService
+    private _conectionService:ConnectionService,
+    private _router:Router
   ) { 
     this.user= new User('','','','','','');
   }
@@ -25,7 +27,7 @@ export class RegisterComponent implements OnInit {
     
     this._conectionService.register(this.user).subscribe(
       res=>{
-        console.log(res);
+        this._router.navigate(['/login']);
         
       },
       err=>{

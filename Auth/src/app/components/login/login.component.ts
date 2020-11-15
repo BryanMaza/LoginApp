@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
 
   user:User;
   msg_register=false;
-  identity;
   token;
   constructor(
     private _connectionService:ConnectionService,
@@ -23,14 +22,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   onSubmit(form){
     this._connectionService.login(this.user,true).subscribe(
       res=> {
-        this.identity=res.data.user;
+        this.user=res.data.user;
         this.token=res.data.token;
+        console.log(this.user);
         
         // Mantenemos los datos para la sesion
-        localStorage.setItem('identity',JSON.stringify(this.identity));
+        localStorage.setItem('identity',JSON.stringify(this.user));
         localStorage.setItem('token',this.token);
         
         this._router.navigate(['/perfil']);

@@ -23,7 +23,7 @@ var controller = {
       try {
         user.name = "";
         user.bio = "";
-        user.phone = "";
+        user.phone = 0;
         user.email = params.email.toLowerCase();
         user.image = "";
       } catch (err) {
@@ -141,7 +141,6 @@ var controller = {
   // Actulizar datos del ususario
   update: function (req, res) {
     var params = req.body;
-    
     // Recogemos los datos
     var validate_name = !validator.isEmpty(params.name);
     var validate_phone = !validator.isEmpty(params.phone);
@@ -181,6 +180,7 @@ var controller = {
               update,
               { new: true },
               (err, userUpdated) => {
+               
                 if (err) {
                   return res.status(400).send({
                     status: "Error",
@@ -227,7 +227,7 @@ var controller = {
       var user = req.user;
       var params = req.body;
       // Comprobamos si el usuario esta identificado
-      if (user.id === params.id) {
+      
         //Validamos la extencion de la imagen
         if (!file.name || file.name.match(/\.(jpg||jpeg ||png||svg||gif||JPEG)$/i)) {
           file.mv(`./uploads/imgs/${file.name}`, (err) => {
@@ -258,6 +258,7 @@ var controller = {
                 }
                 return res.status(200).send({
                   status: "Ok",
+                  image:file.name,
                   message: "File upload",
                 });
               }
@@ -269,12 +270,7 @@ var controller = {
             message: file.name + " No es una imagen",
           });
         }
-      } else {
-        return res.status(400).send({
-          status: "Error",
-          message: "No puedes actualizar este usuario",
-        });
-      }
+      
     }
   },
   //Obtener foto de perfil del usuario

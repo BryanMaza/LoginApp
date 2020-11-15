@@ -1,13 +1,31 @@
-<nav class="navbar navbar-expand-md navbar-light">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a href=""><img src="./assets/imgs/devchallenges.svg" alt="icondev" /></a>
-        
-      </li>
-    </ul>
+<nav class="navbar navbar-expand-sm navbar-light">
+  <a href="" class="navbar-brand"
+    ><img src="./assets/imgs/devchallenges.svg" alt="icondev"
+  /></a>
+ 
+ 
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto"></ul>
     <ul class="navbar-nav">
+      <img
+        src="./assets/imgs/default.png"
+        alt="avatar"
+        class="img-fluid avatar "
+        *ngIf="
+          identity.image === null || identity.image === '';
+          else imgdefault
+        "
+      />
+      
+      <ng-template #imgdefault>
+        <img
+          src="{{ url }}/avatar/{{ identity.image }}"
+          alt="avatar"
+          class="img-fluid avatar"
+          *ngIf="identity.name != null; else imgdefault"
+        />
+      </ng-template>
       <li class="nav-item dropdown">
         <a
           class="nav-link dropdown-toggle name"
@@ -20,7 +38,10 @@
         >
           {{ identity.name }}
         </a>
-        <div class="dropdown-menu drop-list" aria-labelledby="navbarDropdown">
+        <div
+          class="dropdown-menu drop-list dropdown-menu-right dropdown-menu-lg-left"
+          aria-labelledby="navbarDropdown"
+        >
           <div class="lists-items">
             <a class="dropdown-item list" href="#"
               ><span class="material-icons icon-p"> account_circle </span>
@@ -31,12 +52,10 @@
               <span class="material-icons icon-p"> people </span>
               <span class="text">Group Chat</span>
             </a>
-
             <div class="dropdown-divider"></div>
-
             <a class="dropdown-item list logut" href="#"
               ><span class="material-icons icon-p"> exit_to_app </span>
-              <span class="text">Logout</span></a
+              <span class="text" (click)="logout()">Logout</span></a
             >
           </div>
         </div>
@@ -45,37 +64,57 @@
   </div>
 </nav>
 
-<div class="row justify-content-center align-items-center h-100">
-  <div class="container text-center ">
+<div class="row content justify-content-center align-items-center">
+  <div class="container text-center mt-3" *ngIf="!edit; else editForm">
     <h1>Personal info</h1>
     <p>Basic info, like you name and photo</p>
     <ul class="list-group d-flex text-left justify-content-between">
-      <li class="list-group-item list-group-item d-flex justify-content-between align-items-center ">
+      <li
+        class="list-group-item list-group-item d-flex justify-content-between align-items-center"
+      >
         <div class="izq float-left ml-4">
           <h3>Profile</h3>
           <p>Some info may be visible to other profile</p>
         </div>
-        <button [routerLink]="['/edit']"    class="btn btn-outline-dark edit-btn">Edit</button>
+        <button (click)="editar()" class="btn btn-outline-dark edit-btn">
+          Edit
+        </button>
       </li>
-      <li class="list-group-item ">
+      <li class="list-group-item">
         <span class="detail-profile">PHOTO</span>
-        <p class="float-left"></p>
+        <img
+          src="./assets/imgs/default.png"
+          alt="avatar"
+          class="img-fluid avatar-perfil mr-3"
+          *ngIf="
+            identity.image === null || identity.image === '';
+            else imgdefault
+          "
+        />
+        <ng-template #imgdefault>
+          <img
+            src="{{ url }}/avatar/{{ identity.image }}"
+            alt="avatar"
+            class="img-fluid avatar-perfil mr-3"
+            *ngIf="identity.name != null; else imgdefault"
+          />
+        </ng-template>
       </li>
       <li class="list-group-item">
         <span class="detail-profile">NAME</span>
-        <p class="float-left">{{identity.name}}</p>
+        <p class="float-left">{{ identity.name }}</p>
       </li>
       <li class="list-group-item">
         <span class="detail-profile">BIO</span>
-        <p class="float-left">{{identity.bio}}</p>
+        <p class="float-left">{{ identity.bio }}</p>
       </li>
       <li class="list-group-item">
         <span class="detail-profile">PHONE</span>
-        <p class="float-left">{{identity.phone}}</p>
+        <p class="float-left">{{ identity.phone }}</p>
       </li>
       <li class="list-group-item">
         <span class="detail-profile">EMAIL</span>
-        <p class="float-left">{{identity.email}}</p>
+        <p class="float-left">{{ identity.email }}</p>
       </li>
       <li class="list-group-item">
         <span class="detail-profile">PASSWORD</span>
@@ -83,4 +122,10 @@
       </li>
     </ul>
   </div>
+
+  <ng-template #editForm>
+    <div class="container mt-3">
+      <app-perfil-edit [(edit)]="edit"></app-perfil-edit>
+    </div>
+  </ng-template>
 </div>
